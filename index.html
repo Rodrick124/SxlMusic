@@ -73,7 +73,7 @@
 			                    <a class="nav-link" href="#bio">BIO</a>
 			                </li>
 			                <li class="nav-item">
-			                    <a class="nav-link" href="#media">MEDIA</a>
+			                    <a class="nav-link" href="#media">VIDEOS</a>
 			                </li>
 			                <li class="nav-item">
 			                    <a class="nav-link" href="#gallery">GALLERY</a>
@@ -166,7 +166,7 @@
 							<p>The following sounds are only available after purchase</p>
 							<img src="images/info sxl/cove le temps.png" alt="cove le temps" style="width: 23em;">
 						</div>
-						<a href="#" class="btn btn-primary">BUY NOW!</a>
+						<form action="" method="get" data-monetbil="form"><button class="btn btn-primary" type="submit">Pay by Mobile Money</button></form>
 					</div>				
 
 				</div>
@@ -577,30 +577,56 @@
 						</h2>
 						<p class="subheading text-white">for more info & booking artist</p>
 					
-						<form action="#" class="form-contact" id="contactForm">
+						<form class="form-contact" id="form">
 							<div class="form-group">
-								<input type="text" class="form-control" id="p_name" placeholder="Enter Name" required="">
+								<input type="text" class="form-control" id="form_name" name="form_name" placeholder="Enter Name" required="">
 								<div class="help-block with-errors"></div>
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control" id="p_email" placeholder="Enter Email" required="">
+								<input type="email" class="form-control" name="email_ID" id="email_ID" placeholder="Enter Email" required="">
 								<div class="help-block with-errors"></div>
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" id="p_subject" placeholder="Subject" required="">
+								<input type="text" class="form-control" name="subject_ID" id="subject_ID" placeholder="Subject" required="">
 								<div class="help-block with-errors"></div>
 							</div>
 							<div class="form-group">
-								 <textarea id="p_message" class="form-control" rows="6" placeholder="Enter Your Message"></textarea>
+								 <textarea  name="message_ID" id="message_ID" class="form-control" rows="6" placeholder="Enter Your Message"></textarea>
 								<div class="help-block with-errors"></div>
 							</div>
 							<div class="form-group">
 								<div class="text-left">
 									<div id="success"></div>
-									<button type="submit" class="btn btn-primary">SEND MESSAGE</button>
+									<input type="submit" class="btn btn-primary" id="button" value="Send Email">
 								</div>
 							</div>
 						</form>
+						<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+						<script type="text/javascript">
+							emailjs.init('ixaTYkPjPnTSyZsjF')
+						</script>
+						<script>
+							const btn = document.getElementById('button');
+
+							document.getElementById('form')
+							.addEventListener('submit', function(event) {
+							event.preventDefault();
+
+							btn.value = 'Sending...';
+
+							const serviceID = 'default_service';
+							const templateID = 'template_sdwiu47';
+
+							emailjs.sendForm(serviceID, templateID, this)
+								.then(() => {
+								btn.value = 'Send Email';
+								alert('Sent!');
+								}, (err) => {
+								btn.value = 'Send Email';
+								alert(JSON.stringify(err));
+								});
+							});
+						</script>
 
 						<div class="spacer-content"></div>
 
@@ -694,6 +720,7 @@
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU&amp;callback=initMap"> </script>
 
 	<script src="js/script.js"></script>
+	<script type="text/javascript" src="https://monetbil.com/widget/v2/monetbil.min.js"></script>
 
 </body>
 

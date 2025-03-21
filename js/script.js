@@ -264,9 +264,9 @@ $(document).ready(function(){
 	});
 
 	$('#filter2 a').on('click', function() {
- 		$('#filter2 .active').removeClass('active');
+		$('#filter2 .active').removeClass('active');
 		$(this).addClass('active');
- 
+
 		var selector = $(this).attr('data-filter');
 		$grid.isotope({
 			filter: selector,
@@ -276,7 +276,7 @@ $(document).ready(function(){
 			}
 		});
 		return false;
- 	});
+	});
 
 	var $gridv2 = $('.grid-v1');
 	$gridv2.isotope({
@@ -293,9 +293,9 @@ $(document).ready(function(){
 	});
 
 	$('.portfolio_filter a').on('click', function() {
- 		$('.portfolio_filter .active').removeClass('active');
+		$('.portfolio_filter .active').removeClass('active');
 		$(this).addClass('active');
- 
+
 		var selector = $(this).attr('data-filter');
 		$gridv2.isotope({
 			filter: selector,
@@ -305,13 +305,10 @@ $(document).ready(function(){
 			}
 		});
 		return false;
- 	});
+	});
 
 
 	
 });
 
 
-
-  
-  
